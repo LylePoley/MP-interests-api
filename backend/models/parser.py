@@ -1,0 +1,94 @@
+from typing import Dict, Any, List
+from backend.models import Member, Party, Interest, InterestCategory, InterestField
+from datetime import datetime
+
+
+def deep_get(data: Dict[str, Any], path: List[str], default: Any=None) -> Any:
+
+    for key in path:
+        if not isinstance(data, dict):
+            return default
+        data = data.get(key, default)
+
+    return data
+
+def parse_date(date_str: str | None) -> datetime | None:
+    return datetime.fromisoformat(date_str) if date_str else None
+
+def member_from_dict(data: Dict[str, Any]) -> Member:
+    party = Party(
+        id=deep_get(data, ["value", "latestParty", "id"]),
+        name=deep_get(data, ["value", "latestParty", "name"]),
+        abbreviation=deep_get(data, ["value", "latestParty", "abbreviation"]),
+        background_colour=deep_get(data, ["value", "latestParty", "backgroundColour"]),
+        foreground_colour=deep_get(data, ["value", "latestParty", "foregroundColour"]),
+        is_lords_main_party=deep_get(data, ["value", "latestParty", "isLordsMainParty"]),
+        is_lords_spiritual_party=deep_get(data, ["value", "latestParty", "isLordsSpiritualParty"]),
+        is_independent_party=deep_get(data, ["value", "latestParty", "isIndependentParty"]),
+        government_type=deep_get(data, ["value", "latestParty", "governmentType", "name"]),
+    )
+
+    member = Member(
+        id=deep_get(data, ["value", "id"]),
+        name_list_as=deep_get(data, ["value", "nameListAs"]),
+        name_display_as=deep_get(data, ["value", "nameDisplayAs"]),
+        name_full_title=deep_get(data, ["value", "nameFullTitle"]),
+        name_address_as=deep_get(data, ["value", "nameAddressAs"]),
+        gender=deep_get(data, ["value", "gender"]),
+        thumbnail_url=deep_get(data, ["value", "thumbnailUrl"]),
+        party_id=deep_get(data, ["value", "latestParty", "id"]),
+        house=deep_get(data, ["value", "latestHouseMembership", "house"]),
+        membership_from=deep_get(data, ["value", "latestHouseMembership", "membershipFrom"]),
+        membership_from_id=deep_get(data, ["value", "latestHouseMembership", "membershipFromId"]),
+        membership_start_date=parse_date(deep_get(data, ["value", "latestHouseMembership", "membershipStartDate"])),
+        membership_end_date=parse_date(deep_get(data, ["value", "latestHouseMembership", "membershipEndDate"])),
+        membership_end_reason=deep_get(data, ["value", "latestHouseMembership", "membershipEndReason"]),
+        membership_end_reason_notes=deep_get(data, ["value", "latestHouseMembership", "membershipEndReasonNotes"]),
+        membership_end_reason_id=deep_get(data, ["value", "latestHouseMembership", "membershipEndReasonId"]),
+        status_is_active=deep_get(data, ["value", "latestHouseMembership", "membershipStatus", "statusIsActive"]),
+        status_description=deep_get(data, ["value", "latestHouseMembership", "membershipStatus", "statusDescription"]),
+        status_notes=deep_get(data, ["value", "latestHouseMembership", "membershipStatus", "statusNotes"]),
+        status_id=deep_get(data, ["value", "latestHouseMembership", "membershipStatus", "statusId"]),
+        status=deep_get(data, ["value", "latestHouseMembership", "membershipStatus", "status"]),
+        status_start_date=parse_date(deep_get(data, ["value", "latestHouseMembership", "membershipStatus", "statusStartDate"])),
+        party=party,
+    )
+
+    return member
+
+def interest_from_dict(data: Dict[str, Any]) -> Interest:
+    category = InterestCategory(
+        id=deep_get(data, ["category", "id"]),
+        number=deep_get(data, ["category", "number"]),
+        name=deep_get(data, ["category", "name"]),
+    )
+
+    fields: List[InterestField] = []
+    for field in data.get("fields", []):
+        fields.append(InterestField(
+            interest_id=data.get("id"),
+            name=field.get("name"),
+            description=field.get("description"),
+            type=field.get("type", {}),
+            currency=deep_get(field, ["typeInfo", "currencyCode"]),
+            value=field.get("value"),
+        ))
+
+    interest = Interest(
+        id=data.get("id"),
+        summary=data.get("summary"),
+        member_id=deep_get(data, ["member", "id"]),
+        category_id=category.id,
+        registration_date=parse_date(data.get("registrationDate")),
+        published_date=parse_date(data.get("publishedDate")),
+        rectified=data.get("rectified"),
+        rectified_details=data.get("rectifiedDetails"),
+        category=category,
+        fields=fields,
+    )
+
+    return interest
+
+
+if __name__ == "__main__":
+    ...
