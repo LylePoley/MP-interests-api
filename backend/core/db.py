@@ -1,65 +1,70 @@
-from sqlmodel import SQLModel, create_engine, Session
-from backend.models import Member, Party, Interest, InterestCategory, InterestField
-from typing import Iterable
-from backend.client.fetch import (
-    fetch_all_active_members,
-    fetch_all_interests
-)
+from backend.models import Member, Party, Interest, InterestCategory, member_from_dict, interest_from_dict
+# from backend.client.mock_clients import mock_interest_client, mock_member_client
+from backend.client.fetch import fetch_all_active_members, fetch_all_interests
 from backend.client import member_client, interest_client
-from backend.models import Member, Party, member_from_dict, interest_from_dict
-from backend.client.mock_clients import mock_interest_client, mock_member_client
+from backend.core.config import settings, LogLevel
 
+from sqlmodel import SQLModel, create_engine, Session
+from typing import Iterable, Iterator
+from itertools import batched
 from logging import getLogger
 
 logger = getLogger(__name__)
+logger.setLevel(settings.LOG_LEVEL.value)
 
+engine = create_engine(settings.SQLITE_DB, echo=settings.LOG_LEVEL == LogLevel.DEBUG)
 
-engine = create_engine("sqlite:///members.db")  # or Postgres URI
-
+# for fastapi dependency injection
+def get_session() -> Iterator[Session]:
+    with Session(engine) as session:
+        yield session
 
 def init_db():
     SQLModel.metadata.create_all(engine)
 
-
-def read_members_to_db(data: Iterable[Member]) -> None:
+def merge_members_to_db(data: Iterable[Member], batch_size: int = 100) -> None:
+    number_upserted: int = 0
     with Session(engine) as session:
-        for member in data:
-            if not member.party:
-                logger.warning(f"Member {member.id} has no party.")
-                session.add(member)
-                continue
+        for member_batch in batched(data, batch_size):
+            for member in member_batch:
+                if not member.party:
+                    logger.warning(f"Member {member.id} has no party.")
+                    session.add(member)
+                    continue
 
-            # Check DB in case party already exists
-            db_party = session.get(Party, member.party.id)
-            if db_party:
-                member.party = db_party
+                db_party = session.get(Party, member.party.id)
+                if db_party:
+                    member.party = db_party
 
-            session.add(member)
+                session.merge(member)
+                number_upserted += 1
 
-        session.commit()
+            session.commit()
+        logger.info(f"Upserted {number_upserted} members.")
 
-
-def read_interests_to_db(data: Iterable[Interest]) -> None:
+def merge_interests_to_db(data: Iterable[Interest], batch_size: int = 100) -> None:
+    number_upserted: int = 0
     with Session(engine) as session:
-        for interest in data:
+        for interest_batch in batched(data, batch_size):
+            for interest in interest_batch:
 
-            db_category = session.get(InterestCategory, interest.category.id) if interest.category else None
-            if db_category:
-                interest.category = db_category
+                db_category = session.get(InterestCategory, interest.category.id) if interest.category else None
+                if db_category:
+                    interest.category = db_category
 
-            session.add(interest)
+                session.merge(interest)
+                number_upserted += 1
 
-        session.commit()
-
+            session.commit()
+        logger.info(f"Upserted {number_upserted} interests.")
 
 def setup_db():
     init_db()
 
     members_data = fetch_all_active_members(client=member_client)
     members = map(member_from_dict, members_data)
-    read_members_to_db(members)
+    merge_members_to_db(members)
 
     interests_data = fetch_all_interests(client=interest_client)
     interests = map(interest_from_dict, interests_data)
-    read_interests_to_db(interests)
-
+    merge_interests_to_db(interests)
