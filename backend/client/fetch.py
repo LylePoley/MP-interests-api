@@ -1,4 +1,4 @@
-from backend.client import Client, Response
+from backend.client import Client
 
 from typing import Any, Iterable, Dict
 from logging import getLogger, Logger
