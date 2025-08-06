@@ -1,11 +1,11 @@
-from backend.models import Member, Party, Interest, InterestCategory, member_from_dict, interest_from_dict
+from backend.models import Member, Party, Interest, InterestCategory, member_and_party_from_dict, interest_from_dict
 # from backend.client.mock_clients import mock_interest_client, mock_member_client
 from backend.client.fetch import fetch_all_active_members, fetch_all_interests
 from backend.client import member_client, interest_client
 from backend.core.config import settings, LogLevel
 
 from sqlmodel import SQLModel, create_engine, Session
-from typing import Iterable, Iterator
+from typing import Iterable, Iterator, Tuple
 from itertools import batched
 from logging import getLogger
 
@@ -22,49 +22,28 @@ def get_session() -> Iterator[Session]:
 def init_db():
     SQLModel.metadata.create_all(engine)
 
-def merge_members_to_db(data: Iterable[Member], batch_size: int = 100) -> None:
+def merge_to_db(items: Iterable[Tuple[SQLModel | None, ...]], batch_size: int = 100) -> None:
     number_upserted: int = 0
     with Session(engine) as session:
-        for member_batch in batched(data, batch_size):
-            for member in member_batch:
-                if not member.party:
-                    logger.warning(f"Member {member.id} has no party.")
-                    session.add(member)
-                    continue
-
-                db_party = session.get(Party, member.party.id)
-                if db_party:
-                    member.party = db_party
-
-                session.merge(member)
-                number_upserted += 1
+        for batch in batched(items, batch_size):
+            for models in batch:
+                for model in models:
+                    if model:
+                        session.merge(model)
+                        number_upserted += 1
 
             session.commit()
-        logger.info(f"Upserted {number_upserted} members.")
-
-def merge_interests_to_db(data: Iterable[Interest], batch_size: int = 100) -> None:
-    number_upserted: int = 0
-    with Session(engine) as session:
-        for interest_batch in batched(data, batch_size):
-            for interest in interest_batch:
-
-                db_category = session.get(InterestCategory, interest.category.id) if interest.category else None
-                if db_category:
-                    interest.category = db_category
-
-                session.merge(interest)
-                number_upserted += 1
-
-            session.commit()
-        logger.info(f"Upserted {number_upserted} interests.")
+        logger.info(f"Upserted {number_upserted} items.")
 
 def setup_db():
     init_db()
 
     members_data = fetch_all_active_members(client=member_client)
-    members = map(member_from_dict, members_data)
-    merge_members_to_db(members)
+    parsed_member_data = map(member_and_party_from_dict, members_data)
+
+    merge_to_db(parsed_member_data)
 
     interests_data = fetch_all_interests(client=interest_client)
-    interests = map(interest_from_dict, interests_data)
-    merge_interests_to_db(interests)
+    parsed_interests_data = map(interest_from_dict, interests_data)
+
+    merge_to_db(parsed_interests_data)

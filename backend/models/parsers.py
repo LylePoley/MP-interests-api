@@ -1,6 +1,7 @@
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Tuple
 from backend.models import Member, Party, Interest, InterestCategory, InterestField, MonetaryValueField
 from datetime import datetime
+from sqlmodel import SQLModel
 
 
 def deep_get(data: Dict[str, Any], path: List[str], default: Any=None) -> Any:
@@ -16,7 +17,7 @@ def deep_get(data: Dict[str, Any], path: List[str], default: Any=None) -> Any:
 def parse_date(date_str: str | None) -> datetime | None:
     return datetime.fromisoformat(date_str) if date_str else None
 
-def member_from_dict(data: Dict[str, Any]) -> Member:
+def member_and_party_from_dict(data: Dict[str, Any]) -> Tuple[Member, Party]:
     party = Party(
         id=deep_get(data, ["value", "latestParty", "id"]),
         name=deep_get(data, ["value", "latestParty", "name"]),
@@ -43,12 +44,11 @@ def member_from_dict(data: Dict[str, Any]) -> Member:
         membership_end_reason=deep_get(data, ["value", "latestHouseMembership", "membershipEndReason"]),
         status_is_active=deep_get(data, ["value", "latestHouseMembership", "membershipStatus", "statusIsActive"]),
         status_start_date=parse_date(deep_get(data, ["value", "latestHouseMembership", "membershipStatus", "statusStartDate"])),
-        party=party,
     )
 
-    return member
+    return member, party
 
-def interest_from_dict(data: Dict[str, Any]) -> Interest:
+def interest_from_dict(data: Dict[str, Any]) -> Tuple[SQLModel | None, ...]:
     category = InterestCategory(
         id=deep_get(data, ["category", "id"]),
         number=deep_get(data, ["category", "number"]),
@@ -89,7 +89,7 @@ def interest_from_dict(data: Dict[str, Any]) -> Interest:
         monetary_value_field=monetary_value_field
     )
 
-    return interest
+    return interest, category, *fields, monetary_value_field
 
 
 if __name__ == "__main__":
