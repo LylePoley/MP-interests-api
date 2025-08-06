@@ -11,7 +11,8 @@ class LogLevel(Enum):
 
 
 class Settings:
-    FRONTEND_HOST: str = "http://localhost:8000"
+    FASTAPI_HOST: str = "localhost" # or "127.0.0.1"
+    FASTAPI_PORT: int = 8000
     SQLITE_DB: str = "sqlite:///members.db"
 
     LOG_LEVEL: LogLevel = LogLevel.INFO
