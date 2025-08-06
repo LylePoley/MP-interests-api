@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Query, Depends
-from sqlmodel import Session, select, col, func
+from sqlmodel import Session, select
 from typing import List
 
 from backend.models import Member
@@ -9,7 +9,7 @@ from datetime import datetime
 
 router = APIRouter(prefix="/members", tags=["members"])
 
-@router.get("/search", response_model=List[Member])
+@router.get("/search", response_model=List[Member], operation_id="search_members")
 def search_members(*, session: Session = Depends(get_session),
     name: str | None = Query(None),
     party: str | None = Query(None),
@@ -24,8 +24,8 @@ def search_members(*, session: Session = Depends(get_session),
     statement = filter.by_member_name(statement, name)
     statement = filter.by_party(statement, party)
     statement = filter.by_house(statement, house)
-    statement = filter.by_membership_start_date(statement, membership_started_since)
-    statement = filter.by_membership_end_date(statement, membership_ended_since)
+    statement = filter.by_membership_start(statement, membership_started_since)
+    statement = filter.by_membership_end(statement, membership_ended_since)
 
     statement = statement.offset(skip).limit(take)
 
