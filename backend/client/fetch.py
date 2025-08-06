@@ -46,15 +46,6 @@ def fetch_all_active_members(client: Client) -> Iterable[Dict[str, Any]]:
         logger=logger,
     )
 
-def fetch_all_interest_categories(client: Client) -> Iterable[Dict[str, Any]]:
-    return fetch_all(
-        client=client,
-        relative_url="/Categories",
-        params={},
-        description="interest categories",
-        logger=logger,
-    )
-
 def fetch_all_interests(client: Client) -> Iterable[Dict[str, Any]]:
     return fetch_all(
         client=client,
