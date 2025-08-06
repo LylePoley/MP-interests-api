@@ -23,10 +23,7 @@ def member_from_dict(data: Dict[str, Any]) -> Member:
         abbreviation=deep_get(data, ["value", "latestParty", "abbreviation"]),
         background_colour=deep_get(data, ["value", "latestParty", "backgroundColour"]),
         foreground_colour=deep_get(data, ["value", "latestParty", "foregroundColour"]),
-        is_lords_main_party=deep_get(data, ["value", "latestParty", "isLordsMainParty"]),
-        is_lords_spiritual_party=deep_get(data, ["value", "latestParty", "isLordsSpiritualParty"]),
         is_independent_party=deep_get(data, ["value", "latestParty", "isIndependentParty"]),
-        government_type=deep_get(data, ["value", "latestParty", "governmentType", "name"]),
     )
 
     member = Member(
@@ -44,13 +41,7 @@ def member_from_dict(data: Dict[str, Any]) -> Member:
         membership_start_date=parse_date(deep_get(data, ["value", "latestHouseMembership", "membershipStartDate"])),
         membership_end_date=parse_date(deep_get(data, ["value", "latestHouseMembership", "membershipEndDate"])),
         membership_end_reason=deep_get(data, ["value", "latestHouseMembership", "membershipEndReason"]),
-        membership_end_reason_notes=deep_get(data, ["value", "latestHouseMembership", "membershipEndReasonNotes"]),
-        membership_end_reason_id=deep_get(data, ["value", "latestHouseMembership", "membershipEndReasonId"]),
         status_is_active=deep_get(data, ["value", "latestHouseMembership", "membershipStatus", "statusIsActive"]),
-        status_description=deep_get(data, ["value", "latestHouseMembership", "membershipStatus", "statusDescription"]),
-        status_notes=deep_get(data, ["value", "latestHouseMembership", "membershipStatus", "statusNotes"]),
-        status_id=deep_get(data, ["value", "latestHouseMembership", "membershipStatus", "statusId"]),
-        status=deep_get(data, ["value", "latestHouseMembership", "membershipStatus", "status"]),
         status_start_date=parse_date(deep_get(data, ["value", "latestHouseMembership", "membershipStatus", "statusStartDate"])),
         party=party,
     )
