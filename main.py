@@ -1,27 +1,21 @@
+from backend.core import settings
+from backend.core.db import setup_db
 
+import logging
 
-def fetch_all_active_members() -> Iterable[ApiMemberItem]:
-    logger.info(f"Fetching all active members")
+logging.basicConfig(
+    level=settings.LOG_LEVEL.value,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+)
+logger = logging.getLogger(__name__)
 
-    all_members: Iterable[ApiMemberItem] = ()
-    skip = 0
+if __name__ == "__main__":
+    # setup_db()
+    import uvicorn
 
-    while True:
-        response = search_members(
-            client=members_client,
-            is_current_member=True,
-            house=House.VALUE_1,
-            skip=skip,
-        )
-        if not response:
-            logger.warning("No members found")
-            break
-
-        items = response.items
-        if not items:
-            break
-
-        all_members = chain(all_members, items)
-        skip += len(items)
-
-    return all_members
+    uvicorn.run(
+        "backend.api_server:app",
+        host=settings.FASTAPI_HOST,
+        port=settings.FASTAPI_PORT,
+        reload=True,
+    )
