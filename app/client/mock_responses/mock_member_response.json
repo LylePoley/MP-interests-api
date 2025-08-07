@@ -1,0 +1,1368 @@
+{
+  "items": [
+    {
+      "value": {
+        "id": 172,
+        "nameListAs": "Abbott, Ms Diane",
+        "nameDisplayAs": "Ms Diane Abbott",
+        "nameFullTitle": "Rt Hon Diane Abbott MP",
+        "nameAddressAs": "Ms Abbott",
+        "latestParty": {
+          "id": 8,
+          "name": "Independent",
+          "abbreviation": "Ind",
+          "backgroundColour": "909090",
+          "foregroundColour": "FFFFFF",
+          "isLordsMainParty": false,
+          "isLordsSpiritualParty": false,
+          "governmentType": null,
+          "isIndependentParty": true
+        },
+        "gender": "F",
+        "latestHouseMembership": {
+          "membershipFrom": "Hackney North and Stoke Newington",
+          "membershipFromId": 4074,
+          "house": 1,
+          "membershipStartDate": "1987-06-11T00:00:00",
+          "membershipEndDate": null,
+          "membershipEndReason": null,
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": null,
+          "membershipStatus": {
+            "statusIsActive": true,
+            "statusDescription": "Current Member",
+            "statusNotes": null,
+            "statusId": 0,
+            "status": 0,
+            "statusStartDate": "2024-07-04T00:00:00"
+          }
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/172/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/172",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/172",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/172/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/172/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 172,
+        "nameListAs": "Abbott, Ms Diane",
+        "nameDisplayAs": "Ms Diane Abbott",
+        "nameFullTitle": "Rt Hon Diane Abbott MP",
+        "nameAddressAs": "Ms Abbott",
+        "latestParty": {
+          "id": 8,
+          "name": "Independent",
+          "abbreviation": "Ind",
+          "backgroundColour": "909090",
+          "foregroundColour": "FFFFFF",
+          "isLordsMainParty": false,
+          "isLordsSpiritualParty": false,
+          "governmentType": null,
+          "isIndependentParty": true
+        },
+        "gender": "F",
+        "latestHouseMembership": {
+          "membershipFrom": "Hackney North and Stoke Newington",
+          "membershipFromId": 4074,
+          "house": 1,
+          "membershipStartDate": "1987-06-11T00:00:00",
+          "membershipEndDate": null,
+          "membershipEndReason": null,
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": null,
+          "membershipStatus": {
+            "statusIsActive": true,
+            "statusDescription": "Current Member",
+            "statusNotes": null,
+            "statusId": 0,
+            "status": 0,
+            "statusStartDate": "2024-07-04T00:00:00"
+          }
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/172/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/172",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/172",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/172/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/172/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 172,
+        "nameListAs": "Abbott, Ms Diane",
+        "nameDisplayAs": "Ms Diane Abbott",
+        "nameFullTitle": "Rt Hon Diane Abbott MP",
+        "nameAddressAs": "Ms Abbott",
+        "latestParty": {
+          "id": 8,
+          "name": "Independent",
+          "abbreviation": "Ind",
+          "backgroundColour": "909090",
+          "foregroundColour": "FFFFFF",
+          "isLordsMainParty": false,
+          "isLordsSpiritualParty": false,
+          "governmentType": null,
+          "isIndependentParty": true
+        },
+        "gender": "F",
+        "latestHouseMembership": {
+          "membershipFrom": "Hackney North and Stoke Newington",
+          "membershipFromId": 4074,
+          "house": 1,
+          "membershipStartDate": "1987-06-11T00:00:00",
+          "membershipEndDate": null,
+          "membershipEndReason": null,
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": null,
+          "membershipStatus": {
+            "statusIsActive": true,
+            "statusDescription": "Current Member",
+            "statusNotes": null,
+            "statusId": 0,
+            "status": 0,
+            "statusStartDate": "2024-07-04T00:00:00"
+          }
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/172/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/172",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/172",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/172/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/172/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 172,
+        "nameListAs": "Abbott, Ms Diane",
+        "nameDisplayAs": "Ms Diane Abbott",
+        "nameFullTitle": "Rt Hon Diane Abbott MP",
+        "nameAddressAs": "Ms Abbott",
+        "latestParty": {
+          "id": 8,
+          "name": "Independent",
+          "abbreviation": "Ind",
+          "backgroundColour": "909090",
+          "foregroundColour": "FFFFFF",
+          "isLordsMainParty": false,
+          "isLordsSpiritualParty": false,
+          "governmentType": null,
+          "isIndependentParty": true
+        },
+        "gender": "F",
+        "latestHouseMembership": {
+          "membershipFrom": "Hackney North and Stoke Newington",
+          "membershipFromId": 4074,
+          "house": 1,
+          "membershipStartDate": "1987-06-11T00:00:00",
+          "membershipEndDate": null,
+          "membershipEndReason": null,
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": null,
+          "membershipStatus": {
+            "statusIsActive": true,
+            "statusDescription": "Current Member",
+            "statusNotes": null,
+            "statusId": 0,
+            "status": 0,
+            "statusStartDate": "2024-07-04T00:00:00"
+          }
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/172/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/172",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/172",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/172/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/172/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 172,
+        "nameListAs": "Abbott, Ms Diane",
+        "nameDisplayAs": "Ms Diane Abbott",
+        "nameFullTitle": "Rt Hon Diane Abbott MP",
+        "nameAddressAs": "Ms Abbott",
+        "latestParty": {
+          "id": 8,
+          "name": "Independent",
+          "abbreviation": "Ind",
+          "backgroundColour": "909090",
+          "foregroundColour": "FFFFFF",
+          "isLordsMainParty": false,
+          "isLordsSpiritualParty": false,
+          "governmentType": null,
+          "isIndependentParty": true
+        },
+        "gender": "F",
+        "latestHouseMembership": {
+          "membershipFrom": "Hackney North and Stoke Newington",
+          "membershipFromId": 4074,
+          "house": 1,
+          "membershipStartDate": "1987-06-11T00:00:00",
+          "membershipEndDate": null,
+          "membershipEndReason": null,
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": null,
+          "membershipStatus": {
+            "statusIsActive": true,
+            "statusDescription": "Current Member",
+            "statusNotes": null,
+            "statusId": 0,
+            "status": 0,
+            "statusStartDate": "2024-07-04T00:00:00"
+          }
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/172/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/172",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/172",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/172/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/172/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 5131,
+        "nameListAs": "Abbott, Jack",
+        "nameDisplayAs": "Jack Abbott",
+        "nameFullTitle": "Jack Abbott MP",
+        "nameAddressAs": null,
+        "latestParty": {
+          "id": 15,
+          "name": "Labour (Co-op)",
+          "abbreviation": "Lab",
+          "backgroundColour": "d50000",
+          "foregroundColour": "ffffff",
+          "isLordsMainParty": true,
+          "isLordsSpiritualParty": true,
+          "governmentType": 0,
+          "isIndependentParty": false
+        },
+        "gender": "M",
+        "latestHouseMembership": {
+          "membershipFrom": "Ipswich",
+          "membershipFromId": 4117,
+          "house": 1,
+          "membershipStartDate": "2024-07-04T00:00:00",
+          "membershipEndDate": null,
+          "membershipEndReason": null,
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": null,
+          "membershipStatus": {
+            "statusIsActive": true,
+            "statusDescription": "Current Member",
+            "statusNotes": null,
+            "statusId": 0,
+            "status": 0,
+            "statusStartDate": "2024-07-04T00:00:00"
+          }
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/5131/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/5131",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/5131",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/5131/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/5131/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 3305,
+        "nameListAs": "Aberconway, L.",
+        "nameDisplayAs": "Lord Aberconway",
+        "nameFullTitle": "The Lord Aberconway",
+        "nameAddressAs": null,
+        "latestParty": {
+          "id": 4,
+          "name": "Conservative",
+          "abbreviation": "Con",
+          "backgroundColour": "0063ba",
+          "foregroundColour": "ffffff",
+          "isLordsMainParty": true,
+          "isLordsSpiritualParty": false,
+          "governmentType": 3,
+          "isIndependentParty": false
+        },
+        "gender": "M",
+        "latestHouseMembership": {
+          "membershipFrom": "Hereditary",
+          "membershipFromId": 2,
+          "house": 2,
+          "membershipStartDate": "1953-05-23T00:00:00",
+          "membershipEndDate": "1999-11-11T00:00:00",
+          "membershipEndReason": "Excluded",
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": 14,
+          "membershipStatus": null
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/3305/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/3305",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/3305",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/3305/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/3305/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 3469,
+        "nameListAs": "Abercorn, D.",
+        "nameDisplayAs": "The Duke of Abercorn",
+        "nameFullTitle": "His Grace the Duke of Abercorn",
+        "nameAddressAs": null,
+        "latestParty": {
+          "id": 4,
+          "name": "Conservative",
+          "abbreviation": "Con",
+          "backgroundColour": "0063ba",
+          "foregroundColour": "ffffff",
+          "isLordsMainParty": true,
+          "isLordsSpiritualParty": false,
+          "governmentType": 3,
+          "isIndependentParty": false
+        },
+        "gender": "M",
+        "latestHouseMembership": {
+          "membershipFrom": "Hereditary",
+          "membershipFromId": 2,
+          "house": 2,
+          "membershipStartDate": "1979-06-04T00:00:00",
+          "membershipEndDate": "1999-11-11T00:00:00",
+          "membershipEndReason": "Excluded",
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": 14,
+          "membershipStatus": null
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/3469/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/3469",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/3469",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/3469/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/3469/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 3468,
+        "nameListAs": "Aberdare, L.",
+        "nameDisplayAs": "Lord Aberdare",
+        "nameFullTitle": "The Rt Hon. the Lord Aberdare KBE DL",
+        "nameAddressAs": "The Rt Hon. the the Lord Aberdare KBE DL",
+        "latestParty": {
+          "id": 4,
+          "name": "Conservative",
+          "abbreviation": "Con",
+          "backgroundColour": "0063ba",
+          "foregroundColour": "ffffff",
+          "isLordsMainParty": true,
+          "isLordsSpiritualParty": false,
+          "governmentType": 3,
+          "isIndependentParty": false
+        },
+        "gender": "M",
+        "latestHouseMembership": {
+          "membershipFrom": "Excepted Hereditary",
+          "membershipFromId": 10,
+          "house": 2,
+          "membershipStartDate": "1957-12-18T00:00:00",
+          "membershipEndDate": "2005-01-23T00:00:00",
+          "membershipEndReason": "Death",
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": 1,
+          "membershipStatus": null
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/3468/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/3468",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/3468",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/3468/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/3468/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 3898,
+        "nameListAs": "Aberdare, L.",
+        "nameDisplayAs": "Lord Aberdare",
+        "nameFullTitle": "The Lord Aberdare",
+        "nameAddressAs": "The Lord Aberdare",
+        "latestParty": {
+          "id": 6,
+          "name": "Crossbench",
+          "abbreviation": "XB",
+          "backgroundColour": "C0C0C0",
+          "foregroundColour": "FFFFFF",
+          "isLordsMainParty": true,
+          "isLordsSpiritualParty": true,
+          "governmentType": null,
+          "isIndependentParty": false
+        },
+        "gender": "M",
+        "latestHouseMembership": {
+          "membershipFrom": "Excepted Hereditary",
+          "membershipFromId": 10,
+          "house": 2,
+          "membershipStartDate": "2009-07-20T00:00:00",
+          "membershipEndDate": null,
+          "membershipEndReason": null,
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": null,
+          "membershipStatus": {
+            "statusIsActive": true,
+            "statusDescription": "Current Member",
+            "statusNotes": null,
+            "statusId": 0,
+            "status": 0,
+            "statusStartDate": "2009-07-20T00:00:00"
+          }
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/3898/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/3898",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/3898",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/3898/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/3898/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 3467,
+        "nameListAs": "Aberdeen and Temair, M.",
+        "nameDisplayAs": "Marquess of Aberdeen and Temair",
+        "nameFullTitle": "The Most Hon. the Marquess of Aberdeen and Temair",
+        "nameAddressAs": null,
+        "latestParty": {
+          "id": 6,
+          "name": "Crossbench",
+          "abbreviation": "XB",
+          "backgroundColour": "C0C0C0",
+          "foregroundColour": "FFFFFF",
+          "isLordsMainParty": true,
+          "isLordsSpiritualParty": true,
+          "governmentType": null,
+          "isIndependentParty": false
+        },
+        "gender": "M",
+        "latestHouseMembership": {
+          "membershipFrom": "Hereditary",
+          "membershipFromId": 2,
+          "house": 2,
+          "membershipStartDate": "1984-09-06T00:00:00",
+          "membershipEndDate": "1999-11-11T00:00:00",
+          "membershipEndReason": "Excluded",
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": 14,
+          "membershipStatus": null
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/3467/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/3467",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/3467",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/3467/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/3467/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 3466,
+        "nameListAs": "Abergavenny, M.",
+        "nameDisplayAs": "Marquess of Abergavenny",
+        "nameFullTitle": "The Marquess of Abergavenny KG OBE",
+        "nameAddressAs": null,
+        "latestParty": {
+          "id": 6,
+          "name": "Crossbench",
+          "abbreviation": "XB",
+          "backgroundColour": "C0C0C0",
+          "foregroundColour": "FFFFFF",
+          "isLordsMainParty": true,
+          "isLordsSpiritualParty": true,
+          "governmentType": null,
+          "isIndependentParty": false
+        },
+        "gender": "M",
+        "latestHouseMembership": {
+          "membershipFrom": "Hereditary",
+          "membershipFromId": 2,
+          "house": 2,
+          "membershipStartDate": "1954-03-30T00:00:00",
+          "membershipEndDate": "1999-11-11T00:00:00",
+          "membershipEndReason": "Excluded",
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": 14,
+          "membershipStatus": null
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/3466/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/3466",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/3466",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/3466/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/3466/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 3465,
+        "nameListAs": "Abinger, L.",
+        "nameDisplayAs": "Lord Abinger",
+        "nameFullTitle": "The Lord Abinger",
+        "nameAddressAs": null,
+        "latestParty": {
+          "id": 4,
+          "name": "Conservative",
+          "abbreviation": "Con",
+          "backgroundColour": "0063ba",
+          "foregroundColour": "ffffff",
+          "isLordsMainParty": true,
+          "isLordsSpiritualParty": false,
+          "governmentType": 3,
+          "isIndependentParty": false
+        },
+        "gender": "M",
+        "latestHouseMembership": {
+          "membershipFrom": "Hereditary",
+          "membershipFromId": 2,
+          "house": 2,
+          "membershipStartDate": "1943-07-21T00:00:00",
+          "membershipEndDate": "1999-11-11T00:00:00",
+          "membershipEndReason": "Excluded",
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": 14,
+          "membershipStatus": null
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/3465/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/3465",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/3465",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/3465/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/3465/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 4212,
+        "nameListAs": "Abrahams, Debbie",
+        "nameDisplayAs": "Debbie Abrahams",
+        "nameFullTitle": "Debbie Abrahams MP",
+        "nameAddressAs": "Debbie Abrahams",
+        "latestParty": {
+          "id": 15,
+          "name": "Labour",
+          "abbreviation": "Lab",
+          "backgroundColour": "d50000",
+          "foregroundColour": "ffffff",
+          "isLordsMainParty": true,
+          "isLordsSpiritualParty": true,
+          "governmentType": 0,
+          "isIndependentParty": false
+        },
+        "gender": "F",
+        "latestHouseMembership": {
+          "membershipFrom": "Oldham East and Saddleworth",
+          "membershipFromId": 4230,
+          "house": 1,
+          "membershipStartDate": "2011-01-13T00:00:00",
+          "membershipEndDate": null,
+          "membershipEndReason": null,
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": null,
+          "membershipStatus": {
+            "statusIsActive": true,
+            "statusDescription": "Current Member",
+            "statusNotes": null,
+            "statusId": 0,
+            "status": 0,
+            "statusStartDate": "2024-07-04T00:00:00"
+          }
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/4212/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/4212",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/4212",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/4212/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/4212/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 662,
+        "nameListAs": "Abse, Leo",
+        "nameDisplayAs": "Leo Abse",
+        "nameFullTitle": "Leo Abse",
+        "nameAddressAs": null,
+        "latestParty": {
+          "id": 15,
+          "name": "Labour",
+          "abbreviation": "Lab",
+          "backgroundColour": "d50000",
+          "foregroundColour": "ffffff",
+          "isLordsMainParty": true,
+          "isLordsSpiritualParty": true,
+          "governmentType": 0,
+          "isIndependentParty": false
+        },
+        "gender": "M",
+        "latestHouseMembership": {
+          "membershipFrom": "Torfaen",
+          "membershipFromId": 2943,
+          "house": 1,
+          "membershipStartDate": "1958-11-10T00:00:00",
+          "membershipEndDate": "1987-06-11T00:00:00",
+          "membershipEndReason": "Dissolution",
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": 7,
+          "membershipStatus": null
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/662/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/662",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/662",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/662/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/662/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 3464,
+        "nameListAs": "Ackner, L.",
+        "nameDisplayAs": "Lord Ackner",
+        "nameFullTitle": "The Rt Hon. the Lord Ackner QC",
+        "nameAddressAs": null,
+        "latestParty": {
+          "id": 6,
+          "name": "Crossbench",
+          "abbreviation": "XB",
+          "backgroundColour": "C0C0C0",
+          "foregroundColour": "FFFFFF",
+          "isLordsMainParty": true,
+          "isLordsSpiritualParty": true,
+          "governmentType": null,
+          "isIndependentParty": false
+        },
+        "gender": "M",
+        "latestHouseMembership": {
+          "membershipFrom": "Life Peer (judicial)",
+          "membershipFromId": 6,
+          "house": 2,
+          "membershipStartDate": "1986-01-30T00:00:00",
+          "membershipEndDate": "2006-03-21T00:00:00",
+          "membershipEndReason": "Death",
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": 1,
+          "membershipStatus": null
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/3464/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/3464",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/3464",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/3464/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/3464/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 3463,
+        "nameListAs": "Acton, L.",
+        "nameDisplayAs": "Lord Acton",
+        "nameFullTitle": "The Lord Acton",
+        "nameAddressAs": null,
+        "latestParty": {
+          "id": 15,
+          "name": "Labour",
+          "abbreviation": "Lab",
+          "backgroundColour": "d50000",
+          "foregroundColour": "ffffff",
+          "isLordsMainParty": true,
+          "isLordsSpiritualParty": true,
+          "governmentType": 0,
+          "isIndependentParty": false
+        },
+        "gender": "M",
+        "latestHouseMembership": {
+          "membershipFrom": "Hereds given LPs",
+          "membershipFromId": 9,
+          "house": 2,
+          "membershipStartDate": "2000-04-17T00:00:00",
+          "membershipEndDate": "2010-10-10T00:00:00",
+          "membershipEndReason": "Death",
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": 1,
+          "membershipStatus": null
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/3463/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/3463",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/3463",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/3463/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/3463/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 5120,
+        "nameListAs": "Adam, Shockat",
+        "nameDisplayAs": "Shockat Adam",
+        "nameFullTitle": "Shockat Adam MP",
+        "nameAddressAs": null,
+        "latestParty": {
+          "id": 8,
+          "name": "Independent",
+          "abbreviation": "Ind",
+          "backgroundColour": "909090",
+          "foregroundColour": "FFFFFF",
+          "isLordsMainParty": false,
+          "isLordsSpiritualParty": false,
+          "governmentType": null,
+          "isIndependentParty": true
+        },
+        "gender": "M",
+        "latestHouseMembership": {
+          "membershipFrom": "Leicester South",
+          "membershipFromId": 4142,
+          "house": 1,
+          "membershipStartDate": "2024-07-04T00:00:00",
+          "membershipEndDate": null,
+          "membershipEndReason": null,
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": null,
+          "membershipStatus": {
+            "statusIsActive": true,
+            "statusDescription": "Current Member",
+            "statusNotes": null,
+            "statusId": 0,
+            "status": 0,
+            "statusStartDate": "2024-07-04T00:00:00"
+          }
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/5120/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/5120",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/5120",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/5120/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/5120/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 663,
+        "nameListAs": "Adams, Allen",
+        "nameDisplayAs": "Allen Adams",
+        "nameFullTitle": "Allen Adams",
+        "nameAddressAs": null,
+        "latestParty": {
+          "id": 15,
+          "name": "Labour",
+          "abbreviation": "Lab",
+          "backgroundColour": "d50000",
+          "foregroundColour": "ffffff",
+          "isLordsMainParty": true,
+          "isLordsSpiritualParty": true,
+          "governmentType": 0,
+          "isIndependentParty": false
+        },
+        "gender": "M",
+        "latestHouseMembership": {
+          "membershipFrom": "Paisley North",
+          "membershipFromId": 2287,
+          "house": 1,
+          "membershipStartDate": "1979-05-03T00:00:00",
+          "membershipEndDate": "1990-09-05T00:00:00",
+          "membershipEndReason": "Death",
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": 1,
+          "membershipStatus": null
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/663/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/663",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/663",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/663/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/663/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 645,
+        "nameListAs": "Adams, Mr Gerry",
+        "nameDisplayAs": "Mr Gerry Adams",
+        "nameFullTitle": "Mr Gerry Adams",
+        "nameAddressAs": "Mr Adams",
+        "latestParty": {
+          "id": 30,
+          "name": "Sinn Féin",
+          "abbreviation": "SF",
+          "backgroundColour": "02665f",
+          "foregroundColour": "FFFFFF",
+          "isLordsMainParty": false,
+          "isLordsSpiritualParty": false,
+          "governmentType": null,
+          "isIndependentParty": false
+        },
+        "gender": "M",
+        "latestHouseMembership": {
+          "membershipFrom": "Belfast West",
+          "membershipFromId": 3317,
+          "house": 1,
+          "membershipStartDate": "1997-05-01T00:00:00",
+          "membershipEndDate": "2011-01-26T00:00:00",
+          "membershipEndReason": "Resignation (Northstead)",
+          "membershipEndReasonNotes": "Mr. Adams refused to accept the office of Crown Steward and Bailiff of the Manor of Northstead.",
+          "membershipEndReasonId": 10,
+          "membershipStatus": null
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/645/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/645",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/645",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/645/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/645/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 4057,
+        "nameListAs": "Adams, Nigel",
+        "nameDisplayAs": "Nigel Adams",
+        "nameFullTitle": "Rt Hon Nigel Adams",
+        "nameAddressAs": "Nigel Adams",
+        "latestParty": {
+          "id": 4,
+          "name": "Conservative",
+          "abbreviation": "Con",
+          "backgroundColour": "0063ba",
+          "foregroundColour": "ffffff",
+          "isLordsMainParty": true,
+          "isLordsSpiritualParty": false,
+          "governmentType": 3,
+          "isIndependentParty": false
+        },
+        "gender": "M",
+        "latestHouseMembership": {
+          "membershipFrom": "Selby and Ainsty",
+          "membershipFromId": 3720,
+          "house": 1,
+          "membershipStartDate": "2010-05-06T00:00:00",
+          "membershipEndDate": "2023-06-12T00:00:00",
+          "membershipEndReason": "Resignation (Northstead)",
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": 10,
+          "membershipStatus": null
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/4057/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/4057",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/4057",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/4057/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/4057/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 631,
+        "nameListAs": "Adams of Craigielea, B.",
+        "nameDisplayAs": "Baroness Adams of Craigielea",
+        "nameFullTitle": "The Baroness Adams of Craigielea",
+        "nameAddressAs": "The Baroness Adams of Craigielea",
+        "latestParty": {
+          "id": 15,
+          "name": "Labour",
+          "abbreviation": "Lab",
+          "backgroundColour": "d50000",
+          "foregroundColour": "ffffff",
+          "isLordsMainParty": true,
+          "isLordsSpiritualParty": true,
+          "governmentType": 0,
+          "isIndependentParty": false
+        },
+        "gender": "F",
+        "latestHouseMembership": {
+          "membershipFrom": "Life peer",
+          "membershipFromId": 4,
+          "house": 2,
+          "membershipStartDate": "2005-06-28T00:00:00",
+          "membershipEndDate": null,
+          "membershipEndReason": null,
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": null,
+          "membershipStatus": {
+            "statusIsActive": true,
+            "statusDescription": "Current Member",
+            "statusNotes": null,
+            "statusId": 0,
+            "status": 0,
+            "statusStartDate": "2005-06-28T00:00:00"
+          }
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/631/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/631",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/631",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/631/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/631/Contact",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "value": {
+        "id": 3453,
+        "nameListAs": "Addington, L.",
+        "nameDisplayAs": "Lord Addington",
+        "nameFullTitle": "The Lord Addington",
+        "nameAddressAs": "The Lord Addington",
+        "latestParty": {
+          "id": 17,
+          "name": "Liberal Democrat",
+          "abbreviation": "LD",
+          "backgroundColour": "faa01a",
+          "foregroundColour": "FFFFFF",
+          "isLordsMainParty": true,
+          "isLordsSpiritualParty": false,
+          "governmentType": null,
+          "isIndependentParty": false
+        },
+        "gender": "M",
+        "latestHouseMembership": {
+          "membershipFrom": "Excepted Hereditary",
+          "membershipFromId": 10,
+          "house": 2,
+          "membershipStartDate": "1986-06-17T00:00:00",
+          "membershipEndDate": null,
+          "membershipEndReason": null,
+          "membershipEndReasonNotes": null,
+          "membershipEndReasonId": null,
+          "membershipStatus": {
+            "statusIsActive": true,
+            "statusDescription": "Current Member",
+            "statusNotes": null,
+            "statusId": 0,
+            "status": 0,
+            "statusStartDate": "1986-06-17T00:00:00"
+          }
+        },
+        "thumbnailUrl": "https://members-api.parliament.uk/api/Members/3453/Thumbnail"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "/Members/3453",
+          "method": "GET"
+        },
+        {
+          "rel": "overview",
+          "href": "/Members/3453",
+          "method": "GET"
+        },
+        {
+          "rel": "synopsis",
+          "href": "/Members/3453/Synopsis",
+          "method": "GET"
+        },
+        {
+          "rel": "contactInformation",
+          "href": "/Members/3453/Contact",
+          "method": "GET"
+        }
+      ]
+    }
+  ],
+  "totalResults": 5191,
+  "resultContext": "",
+  "skip": 0,
+  "take": 20,
+  "links": [
+    {
+      "rel": "self",
+      "href": "/Members/Search?skip=0&take=20",
+      "method": "GET"
+    },
+    {
+      "rel": "page.next",
+      "href": "/Members/Search?skip=20&take=20",
+      "method": "GET"
+    },
+    {
+      "rel": "page.previous",
+      "href": "/Members/Search?skip=0&take=20",
+      "method": "GET"
+    }
+  ],
+  "resultType": "None"
+}

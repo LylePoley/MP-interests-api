@@ -1,6 +1,7 @@
-from backend.core import settings
-from backend.core.db import setup_db
+from app.core import settings
+from app.core.db import setup_db
 
+from pathlib import Path
 import logging
 
 logging.basicConfig(
@@ -10,11 +11,12 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 if __name__ == "__main__":
-    # setup_db()
+    if not Path(settings.SQLITE_DB).exists():
+        setup_db()
     import uvicorn
 
     uvicorn.run(
-        "backend.api_server:app",
+        "app.api_server:app",
         host=settings.FASTAPI_HOST,
         port=settings.FASTAPI_PORT,
         reload=True,
