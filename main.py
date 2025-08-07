@@ -11,8 +11,6 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 if __name__ == "__main__":
-    if not Path(settings.SQLITE_DB).exists():
-        setup_db()
     import uvicorn
 
     uvicorn.run(
