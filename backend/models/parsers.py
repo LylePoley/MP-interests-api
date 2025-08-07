@@ -1,10 +1,17 @@
 from typing import Dict, Any, List, Tuple
-from backend.models import Member, Party, Interest, InterestCategory, InterestField, MonetaryValueField
+from backend.models import (
+    Member,
+    Party,
+    Interest,
+    InterestCategory,
+    InterestField,
+    MonetaryValueField,
+)
 from datetime import datetime
 from sqlmodel import SQLModel
 
 
-def deep_get(data: Dict[str, Any], path: List[str], default: Any=None) -> Any:
+def deep_get(data: Dict[str, Any], path: List[str], default: Any = None) -> Any:
     current: Any = data
     for key in path:
         try:
@@ -14,8 +21,10 @@ def deep_get(data: Dict[str, Any], path: List[str], default: Any=None) -> Any:
 
     return current
 
+
 def parse_date(date_str: str | None) -> datetime | None:
     return datetime.fromisoformat(date_str) if date_str else None
+
 
 def member_and_party_from_dict(data: Dict[str, Any]) -> Tuple[Member, Party]:
     party = Party(
@@ -24,7 +33,9 @@ def member_and_party_from_dict(data: Dict[str, Any]) -> Tuple[Member, Party]:
         abbreviation=deep_get(data, ["value", "latestParty", "abbreviation"]),
         background_colour=deep_get(data, ["value", "latestParty", "backgroundColour"]),
         foreground_colour=deep_get(data, ["value", "latestParty", "foregroundColour"]),
-        is_independent_party=deep_get(data, ["value", "latestParty", "isIndependentParty"]),
+        is_independent_party=deep_get(
+            data, ["value", "latestParty", "isIndependentParty"]
+        ),
     )
 
     member = Member(
@@ -37,16 +48,40 @@ def member_and_party_from_dict(data: Dict[str, Any]) -> Tuple[Member, Party]:
         thumbnail_url=deep_get(data, ["value", "thumbnailUrl"]),
         party_id=deep_get(data, ["value", "latestParty", "id"]),
         house=deep_get(data, ["value", "latestHouseMembership", "house"]),
-        membership_from=deep_get(data, ["value", "latestHouseMembership", "membershipFrom"]),
-        membership_from_id=deep_get(data, ["value", "latestHouseMembership", "membershipFromId"]),
-        membership_start_date=parse_date(deep_get(data, ["value", "latestHouseMembership", "membershipStartDate"])),
-        membership_end_date=parse_date(deep_get(data, ["value", "latestHouseMembership", "membershipEndDate"])),
-        membership_end_reason=deep_get(data, ["value", "latestHouseMembership", "membershipEndReason"]),
-        status_is_active=deep_get(data, ["value", "latestHouseMembership", "membershipStatus", "statusIsActive"]),
-        status_start_date=parse_date(deep_get(data, ["value", "latestHouseMembership", "membershipStatus", "statusStartDate"])),
+        membership_from=deep_get(
+            data, ["value", "latestHouseMembership", "membershipFrom"]
+        ),
+        membership_from_id=deep_get(
+            data, ["value", "latestHouseMembership", "membershipFromId"]
+        ),
+        membership_start_date=parse_date(
+            deep_get(data, ["value", "latestHouseMembership", "membershipStartDate"])
+        ),
+        membership_end_date=parse_date(
+            deep_get(data, ["value", "latestHouseMembership", "membershipEndDate"])
+        ),
+        membership_end_reason=deep_get(
+            data, ["value", "latestHouseMembership", "membershipEndReason"]
+        ),
+        status_is_active=deep_get(
+            data,
+            ["value", "latestHouseMembership", "membershipStatus", "statusIsActive"],
+        ),
+        status_start_date=parse_date(
+            deep_get(
+                data,
+                [
+                    "value",
+                    "latestHouseMembership",
+                    "membershipStatus",
+                    "statusStartDate",
+                ],
+            )
+        ),
     )
 
     return member, party
+
 
 def interest_from_dict(data: Dict[str, Any]) -> Tuple[SQLModel | None, ...]:
     category = InterestCategory(
@@ -66,13 +101,15 @@ def interest_from_dict(data: Dict[str, Any]) -> Tuple[SQLModel | None, ...]:
                 currency=deep_get(field, ["typeInfo", "currencyCode"]),
             )
 
-        fields.append(InterestField(
-            interest_id=data.get("id"),
-            name=field.get("name"),
-            description=field.get("description"),
-            type=field.get("type", {}),
-            value=field.get("value"),
-        ))
+        fields.append(
+            InterestField(
+                interest_id=data.get("id"),
+                name=field.get("name"),
+                description=field.get("description"),
+                type=field.get("type", {}),
+                value=field.get("value"),
+            )
+        )
 
     interest = Interest(
         id=data.get("id"),
@@ -86,7 +123,7 @@ def interest_from_dict(data: Dict[str, Any]) -> Tuple[SQLModel | None, ...]:
         rectified_details=data.get("rectifiedDetails"),
         category=category,
         fields=fields,
-        monetary_value_field=monetary_value_field
+        monetary_value_field=monetary_value_field,
     )
 
     return interest, category, *fields, monetary_value_field

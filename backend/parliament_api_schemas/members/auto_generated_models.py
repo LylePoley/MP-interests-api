@@ -30,7 +30,6 @@ class ContactInformation(BaseModel):
     class Config:
         extra = "forbid"
 
-
     type: Optional[str] = None
     typeDescription: Optional[str] = None
     typeId: Optional[int] = None
@@ -52,7 +51,6 @@ class ContactInformation(BaseModel):
 class DebateContribution(BaseModel):
     class Config:
         extra = "forbid"
-
 
     totalContributions: Optional[int] = None
     debateTitle: Optional[str] = None

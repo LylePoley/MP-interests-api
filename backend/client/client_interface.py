@@ -9,7 +9,6 @@ class Response(Protocol):
     @property
     def status_code(self) -> int: ...
 
-class Client(Protocol):
-    def get(self, url: str, *, params: Mapping[str, Any] | None = None) -> Response:
-        ...
 
+class Client(Protocol):
+    def get(self, url: str, *, params: Mapping[str, Any] | None = None) -> Response: ...

@@ -1,19 +1,23 @@
 from backend.client import Client
 
 from typing import Any, Iterable, Dict
-from logging import getLogger, Logger
+from logging import Logger
 
-logger = getLogger(__name__)
 
 def fetch_all(
-        client: Client,
-        relative_url: str,
-        params: Dict[str, Any],
-        description: str | None = None,
-        logger: Logger | None = None
-    ) -> Iterable[Dict[str, Any]]:
+    client: Client,
+    relative_url: str,
+    params: Dict[str, Any],
+    description: str | None = None,
+    logger: Logger | None = None,
+) -> Iterable[Dict[str, Any]]:
+    """
+    Fetch all items from a paginated API endpoint. Goes through the pages of the API response until all items are fetched.
+    """
     if logger:
-        logger.info(f"Fetching {description or 'items'} from {relative_url} with params: {params}")
+        logger.info(
+            f"Fetching {description or 'items'} from {relative_url} with params: {params}"
+        )
 
     skip: int = 0
 
@@ -37,7 +41,9 @@ def fetch_all(
     return
 
 
-def fetch_all_active_members(client: Client) -> Iterable[Dict[str, Any]]:
+def fetch_all_active_members(
+    client: Client, logger: Logger | None = None
+) -> Iterable[Dict[str, Any]]:
     return fetch_all(
         client=client,
         relative_url="/Members/Search",
@@ -46,7 +52,10 @@ def fetch_all_active_members(client: Client) -> Iterable[Dict[str, Any]]:
         logger=logger,
     )
 
-def fetch_all_interests(client: Client) -> Iterable[Dict[str, Any]]:
+
+def fetch_all_interests(
+    client: Client, logger: Logger | None = None
+) -> Iterable[Dict[str, Any]]:
     return fetch_all(
         client=client,
         relative_url="/Interests",

@@ -16,13 +16,20 @@ class httpxResponseAdapter:
     def status_code(self) -> int:
         return self.response.status_code
 
+
 class httpxClientAdapter:
     def __init__(self, client: Client):
         self.client = client
 
-    def get(self, url: str, *, params: Mapping[str, Any] | None = None) -> httpxResponseAdapter:
+    def get(
+        self, url: str, *, params: Mapping[str, Any] | None = None
+    ) -> httpxResponseAdapter:
         return httpxResponseAdapter(self.client.get(url, params=params))
 
 
-member_client = httpxClientAdapter(Client(base_url="https://members-api.parliament.uk/api", follow_redirects=True))
-interest_client = httpxClientAdapter(Client(base_url="https://interests-api.parliament.uk/api/v1", follow_redirects=True))
+member_client = httpxClientAdapter(
+    Client(base_url="https://members-api.parliament.uk/api", follow_redirects=True)
+)
+interest_client = httpxClientAdapter(
+    Client(base_url="https://interests-api.parliament.uk/api/v1", follow_redirects=True)
+)

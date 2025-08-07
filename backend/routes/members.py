@@ -9,26 +9,59 @@ from datetime import datetime
 
 router = APIRouter(prefix="/members", tags=["members"])
 
-@router.get("/search", response_model=List[Member], operation_id="search_members",
-            description="Search members by name, party, house, and membership dates.")
-def search_members(*, session: Session = Depends(get_session),
-    name: Annotated[str | None,
-                    Query(description="Name of the member to search for. Supports partial matches and is case insensitive.",
-                          example="keir")]=None,
-    party: Annotated[str | None,
-                    Query(description="Name of the party to filter members by, supports partial matches and is case insensitive.",
-                          example="lab")]=None,
-    house: Annotated[str | int | None,
-                    Query(description="House ID members by. 1 for Commons, 2 for Lords")]=None,
-    membership_started_since: Annotated[datetime | None,
-                    Query(description="Filter by members whose membership started since this date in ISO format (YYYY-MM-DD).",
-                          example="2012-12-25")]=None,
-    membership_ended_since: Annotated[datetime | None,
-                    Query(description="Filter by members whose membership ended since this date in ISO format (YYYY-MM-DD).")]=None,
-    skip: Annotated[str | int,
-                    Query(description="Number of records to skip for pagination. E.g. 50 will skip the first 50 records")]=0,
-    take: Annotated[str | int | None,
-                    Query(description="Number of records to return. E.g. 20 will return the next 20 records after the skipped ones")]=20,
+
+@router.get(
+    "/search",
+    response_model=List[Member],
+    operation_id="search_members",
+    description="Search members by name, party, house, and membership dates.",
+)
+def search_members(
+    *,
+    session: Session = Depends(get_session),
+    name: Annotated[
+        str | None,
+        Query(
+            description="Name of the member to search for. Supports partial matches and is case insensitive.",
+            example="keir",
+        ),
+    ] = None,
+    party: Annotated[
+        str | None,
+        Query(
+            description="Name of the party to filter members by, supports partial matches and is case insensitive.",
+            example="lab",
+        ),
+    ] = None,
+    house: Annotated[
+        str | int | None,
+        Query(description="House ID members by. 1 for Commons, 2 for Lords"),
+    ] = None,
+    membership_started_since: Annotated[
+        datetime | None,
+        Query(
+            description="Filter by members whose membership started since this date in ISO format (YYYY-MM-DD).",
+            example="2012-12-25",
+        ),
+    ] = None,
+    membership_ended_since: Annotated[
+        datetime | None,
+        Query(
+            description="Filter by members whose membership ended since this date in ISO format (YYYY-MM-DD)."
+        ),
+    ] = None,
+    skip: Annotated[
+        str | int,
+        Query(
+            description="Number of records to skip for pagination. E.g. 50 will skip the first 50 records"
+        ),
+    ] = 0,
+    take: Annotated[
+        str | int | None,
+        Query(
+            description="Number of records to return. E.g. 20 will return the next 20 records after the skipped ones"
+        ),
+    ] = 20,
 ) -> List[Member]:
 
     # type conversions are necessary for claude to be able to call the api

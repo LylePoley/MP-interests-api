@@ -11,10 +11,10 @@ from pydantic import BaseModel, Field
 
 
 class ApiResponseErrorType(Enum):
-    ValidationError = 'ValidationError'
-    AuthenticationError = 'AuthenticationError'
-    ConnectivityError = 'ConnectivityError'
-    GenericError = 'GenericError'
+    ValidationError = "ValidationError"
+    AuthenticationError = "AuthenticationError"
+    ConnectivityError = "ConnectivityError"
+    GenericError = "GenericError"
 
 
 class FieldTypeInfo(BaseModel):
@@ -29,8 +29,8 @@ class InterestsSortOrder(Enum):
     The order in which interests endpoints should return results.
     """
 
-    PublishingDateDescending = 'PublishingDateDescending'
-    CategoryAscending = 'CategoryAscending'
+    PublishingDateDescending = "PublishingDateDescending"
+    CategoryAscending = "CategoryAscending"
 
 
 class Link(BaseModel):
@@ -42,12 +42,12 @@ class Link(BaseModel):
         extra = "forbid"
 
     rel: Optional[str] = Field(
-        None, description='Relationship of the link to the object requested.'
+        None, description="Relationship of the link to the object requested."
     )
     href: Optional[str] = Field(
-        None, description='A complete URL that shows how the action can be performed.'
+        None, description="A complete URL that shows how the action can be performed."
     )
-    method: Optional[str] = Field(None, description='Request method of the link.')
+    method: Optional[str] = Field(None, description="Request method of the link.")
 
 
 class Member(BaseModel):
@@ -58,7 +58,7 @@ class Member(BaseModel):
     class Config:
         extra = "forbid"
 
-    id: Optional[int] = Field(None, description='ID of the member.')
+    id: Optional[int] = Field(None, description="ID of the member.")
     nameDisplayAs: Optional[str] = Field(
         None,
         description="Member's current full name, as it should be displayed in text.",
@@ -69,17 +69,17 @@ class Member(BaseModel):
     )
     house: Optional[str] = Field(
         None,
-        description='The name of the House the Member is currently associated with.',
+        description="The name of the House the Member is currently associated with.",
     )
     memberFrom: Optional[str] = Field(
-        None, description='Constituency of Commons Members.'
+        None, description="Constituency of Commons Members."
     )
     party: Optional[str] = Field(
-        None, description='Party the Member is currently associated with.'
+        None, description="Party the Member is currently associated with."
     )
     links: Optional[List[Link]] = Field(
         None,
-        description='A list of HATEOAS Links for retrieving further information about this member.',
+        description="A list of HATEOAS Links for retrieving further information about this member.",
     )
 
 
@@ -96,8 +96,8 @@ class RegisterDocument(Enum):
     Whether a document contains the full register or only updates
     """
 
-    Full = 'Full'
-    Updated = 'Updated'
+    Full = "Full"
+    Updated = "Updated"
 
 
 class RegisterType(Enum):
@@ -105,7 +105,7 @@ class RegisterType(Enum):
     The type of register of interests
     """
 
-    Commons = 'Commons'
+    Commons = "Commons"
 
 
 class ApiResponseError(BaseModel):
@@ -144,19 +144,19 @@ class PublishedCategory(BaseModel):
     class Config:
         extra = "forbid"
 
-    id: Optional[int] = Field(None, description='ID of the category.')
+    id: Optional[int] = Field(None, description="ID of the category.")
     number: Optional[str] = Field(
-        None, description='Number of the category in the code of conduct.'
+        None, description="Number of the category in the code of conduct."
     )
-    name: Optional[str] = Field(None, description='Name of the category.')
+    name: Optional[str] = Field(None, description="Name of the category.")
     parentCategoryIds: Optional[List[int]] = Field(
         None,
-        description='The unique ID for any parent category to which this category is associated, if the category is associated with another category.',
+        description="The unique ID for any parent category to which this category is associated, if the category is associated with another category.",
     )
     type: Optional[RegisterType] = None
     links: Optional[List[Link]] = Field(
         None,
-        description='A list of HATEOAS Links for retrieving further information about this category.',
+        description="A list of HATEOAS Links for retrieving further information about this category.",
     )
 
 
@@ -169,21 +169,21 @@ class PublishedCategoryApiLinkedSearchResult(BaseModel):
         extra = "forbid"
 
     skip: Optional[int] = Field(
-        None, description='The skip value that was used in the query.'
+        None, description="The skip value that was used in the query."
     )
     take: Optional[int] = Field(
-        None, description='The take value that was used in the query.'
+        None, description="The take value that was used in the query."
     )
     totalResults: Optional[int] = Field(
-        None, description='The total number of results which matches the query.'
+        None, description="The total number of results which matches the query."
     )
     items: Optional[List[PublishedCategory]] = Field(
         None,
-        description='The list of items found for the specified page (by requested skip and take).',
+        description="The list of items found for the specified page (by requested skip and take).",
     )
     links: Optional[List[Link]] = Field(
         None,
-        description='A list of HATEOAS Links for navigating through the paginated result.',
+        description="A list of HATEOAS Links for navigating through the paginated result.",
     )
 
 
@@ -195,43 +195,43 @@ class PublishedInterest(BaseModel):
     class Config:
         extra = "forbid"
 
-    id: Optional[int] = Field(None, description='ID of the interest.')
-    summary: Optional[str] = Field(None, description='Title Summary for the interest.')
+    id: Optional[int] = Field(None, description="ID of the interest.")
+    summary: Optional[str] = Field(None, description="Title Summary for the interest.")
     parentInterestId: Optional[int] = Field(
         None,
-        description='The unique ID for the payer (parent interest) to which this payment (child interest) is associated.',
+        description="The unique ID for the payer (parent interest) to which this payment (child interest) is associated.",
     )
     registrationDate: Optional[date] = Field(
-        None, description='Registration Date on the published interest.'
+        None, description="Registration Date on the published interest."
     )
     publishedDate: Optional[date] = Field(
-        None, description='Date when the interest was first published.'
+        None, description="Date when the interest was first published."
     )
     updatedDates: Optional[List[date]] = Field(
         None,
-        description='A list of dates on which the interest has been updated since it has been published.',
+        description="A list of dates on which the interest has been updated since it has been published.",
     )
     category: Optional[PublishedCategory] = None
     member: Optional[Member] = None
     fields: Optional[List[FieldModel]] = Field(
         None,
-        description='List of fields which are available for a member to add further information about the interest.',
+        description="List of fields which are available for a member to add further information about the interest.",
     )
     childInterests: Optional[List[PublishedInterest]] = Field(
         None,
-        description='List of Interests which are sub interests of this interest. This property is only present if `ExpandChildInterests` is true, and is not defined by default.',
+        description="List of Interests which are sub interests of this interest. This property is only present if `ExpandChildInterests` is true, and is not defined by default.",
     )
     links: Optional[List[Link]] = Field(
         None,
-        description='A list of HATEOAS Links for retrieving related information about this interest.',
+        description="A list of HATEOAS Links for retrieving related information about this interest.",
     )
     rectified: Optional[bool] = Field(
         None,
-        description='Whether the interest has been rectified (e.g. when the interest was submitted late).',
+        description="Whether the interest has been rectified (e.g. when the interest was submitted late).",
     )
     rectifiedDetails: Optional[str] = Field(
         None,
-        description='The reason that the interest was rectified, or `null` if the interest was not rectified.',
+        description="The reason that the interest was rectified, or `null` if the interest was not rectified.",
     )
 
 
@@ -244,21 +244,21 @@ class PublishedInterestApiLinkedSearchResult(BaseModel):
         extra = "forbid"
 
     skip: Optional[int] = Field(
-        None, description='The skip value that was used in the query.'
+        None, description="The skip value that was used in the query."
     )
     take: Optional[int] = Field(
-        None, description='The take value that was used in the query.'
+        None, description="The take value that was used in the query."
     )
     totalResults: Optional[int] = Field(
-        None, description='The total number of results which matches the query.'
+        None, description="The total number of results which matches the query."
     )
     items: Optional[List[PublishedInterest]] = Field(
         None,
-        description='The list of items found for the specified page (by requested skip and take).',
+        description="The list of items found for the specified page (by requested skip and take).",
     )
     links: Optional[List[Link]] = Field(
         None,
-        description='A list of HATEOAS Links for navigating through the paginated result.',
+        description="A list of HATEOAS Links for navigating through the paginated result.",
     )
 
 
@@ -270,14 +270,14 @@ class PublishedRegister(BaseModel):
     class Config:
         extra = "forbid"
 
-    id: Optional[int] = Field(None, description='ID of the register.')
+    id: Optional[int] = Field(None, description="ID of the register.")
     publishedDate: Optional[date] = Field(
-        None, description='Date when the Register was published.'
+        None, description="Date when the Register was published."
     )
     type: Optional[RegisterType] = None
     links: Optional[List[Link]] = Field(
         None,
-        description='A list of HATEOAS Links for retrieving related information about this register.',
+        description="A list of HATEOAS Links for retrieving related information about this register.",
     )
 
 
@@ -290,21 +290,21 @@ class PublishedRegisterApiLinkedSearchResult(BaseModel):
         extra = "forbid"
 
     skip: Optional[int] = Field(
-        None, description='The skip value that was used in the query.'
+        None, description="The skip value that was used in the query."
     )
     take: Optional[int] = Field(
-        None, description='The take value that was used in the query.'
+        None, description="The take value that was used in the query."
     )
     totalResults: Optional[int] = Field(
-        None, description='The total number of results which matches the query.'
+        None, description="The total number of results which matches the query."
     )
     items: Optional[List[PublishedRegister]] = Field(
         None,
-        description='The list of items found for the specified page (by requested skip and take).',
+        description="The list of items found for the specified page (by requested skip and take).",
     )
     links: Optional[List[Link]] = Field(
         None,
-        description='A list of HATEOAS Links for navigating through the paginated result.',
+        description="A list of HATEOAS Links for navigating through the paginated result.",
     )
 
 

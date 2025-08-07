@@ -9,6 +9,7 @@ app = FastAPI()
 app.include_router(members_router)
 app.include_router(interests_total_value_router)
 
+
 @app.get("/")
 async def root():
     return Response(
@@ -16,5 +17,13 @@ async def root():
         media_type="text/plain",
     )
 
-mcp = FastApiMCP(fastapi=app, include_operations=["search_members_with_grouped_interest_values", "search_members"])
-mcp.mount()
+
+mcp = FastApiMCP(
+    fastapi=app,
+    include_operations=[
+        "search_members_with_grouped_interest_values",
+        "search_members",
+        "search_member_interests",
+    ],
+)
+mcp.mount_http()
