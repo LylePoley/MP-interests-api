@@ -11,6 +11,7 @@ from datetime import datetime
 from sqlmodel import SQLModel
 
 
+
 def deep_get(data: Dict[str, Any], path: List[str], default: Any = None) -> Any:
     current: Any = data
     for key in path:
@@ -100,6 +101,7 @@ def interest_from_dict(data: Dict[str, Any]) -> Tuple[SQLModel | None, ...]:
                 value=field.get("value"),
                 currency=deep_get(field, ["typeInfo", "currencyCode"]),
             )
+            continue
 
         fields.append(
             InterestField(

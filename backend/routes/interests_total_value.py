@@ -2,31 +2,77 @@ from fastapi import APIRouter, Query, Depends
 from sqlmodel import Session, select, col, func
 from typing import List, Annotated
 
-from backend.models import Interest, Member, MonetaryValueField
+from backend.models import (
+    Interest,
+    Member,
+    MonetaryValueField,
+    InterestField,
+    InterestCategory,
+)
 from backend.core.db import get_session
 import backend.core.filters as filter
 from datetime import datetime
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 router = APIRouter(prefix="/interests", tags=["interests"])
 
+
 class MemberWithTotalInterestValue(BaseModel):
-    member: Member
-    total_interests_value: float
+    member: Member = Field(..., description="Member details")
+    total_interests_value: float = Field(
+        ..., description="Total value of interests for the member"
+    )
 
 
-@router.get("/search", response_model=List[MemberWithTotalInterestValue], operation_id="search_members_with_grouped_interest_values",
-            description="Search members and when their interests where published. Results are returned sorted in descending value of interests.")
+@router.get(
+    "/search",
+    response_model=List[MemberWithTotalInterestValue],
+    operation_id="search_members_with_grouped_interest_values",
+    description="Search members and when their interests where published. Results are returned sorted in descending value of interests.",
+)
 def search_members_with_grouped_interest_values(
     *,
     session: Session = Depends(get_session),
-    member_name: Annotated[str | None, Query(description="Name of the member to search for. Supports partial matches and is case insensitive e.g. 'John' and 'sm' will match 'John Smith'")] = None,
-    party: Annotated[str | None, Query(description="Name of the party to filter members by, supports partial matches and is case insensitive.")] = None,
-    house: Annotated[str | int | None, Query(description="House ID to filter members by. 1 for Commons, 2 for Lords")] = None,
-    published_before: Annotated[datetime | None, Query(description="Filter by interests published before this date in ISO format (YYYY-MM-DD).")] = None,
-    published_after: Annotated[datetime | None, Query(description="Filter by interests published after this date in ISO format (YYYY-MM-DD).")] = None,
-    skip: Annotated[str | int, Query(description="Number of records to skip for pagination. E.g. 50 will skip the first 50 records")] = 0,
-    take: Annotated[str | int | None, Query(description="Number of records to return. E.g. 20 will return the next 20 records after the skipped ones")] = None,
+    member_name: Annotated[
+        str | None,
+        Query(
+            description="Name of the member to search for. Supports partial matches and is case insensitive e.g. 'John' and 'sm' will match 'John Smith'"
+        ),
+    ] = None,
+    party: Annotated[
+        str | None,
+        Query(
+            description="Name of the party to filter members by, supports partial matches and is case insensitive."
+        ),
+    ] = None,
+    house: Annotated[
+        str | int | None,
+        Query(description="House ID to filter members by. 1 for Commons, 2 for Lords"),
+    ] = None,
+    published_before: Annotated[
+        datetime | None,
+        Query(
+            description="Filter by interests published before this date in ISO format (YYYY-MM-DD)."
+        ),
+    ] = None,
+    published_after: Annotated[
+        datetime | None,
+        Query(
+            description="Filter by interests published after this date in ISO format (YYYY-MM-DD)."
+        ),
+    ] = None,
+    skip: Annotated[
+        str | int,
+        Query(
+            description="Number of records to skip for pagination. E.g. 50 will skip the first 50 records"
+        ),
+    ] = 0,
+    take: Annotated[
+        str | int | None,
+        Query(
+            description="Number of records to return. E.g. 20 will return the next 20 records after the skipped ones"
+        ),
+    ] = None,
 ) -> List[MemberWithTotalInterestValue]:
 
     # these are necessary for claude to be able to call the api
@@ -38,7 +84,11 @@ def search_members_with_grouped_interest_values(
     statement = (
         select(Member, total)
         .join(Interest, col(Interest.member_id) == col(Member.id), isouter=True)
-        .join(MonetaryValueField, col(MonetaryValueField.interest_id) == col(Interest.id), isouter=True)
+        .join(
+            MonetaryValueField,
+            col(MonetaryValueField.interest_id) == col(Interest.id),
+            isouter=True,
+        )
         .order_by(total.desc())
     )
 
@@ -58,5 +108,92 @@ def search_members_with_grouped_interest_values(
     results = session.exec(statement).all()
 
     return [
-        MemberWithTotalInterestValue(member=row[0], total_interests_value=row[1] if row[1] else 0.0) for row in results
+        MemberWithTotalInterestValue(
+            member=row[0], total_interests_value=row[1] if row[1] else 0.0
+        )
+        for row in results
     ]
+
+
+class InterestRead(BaseModel):
+    id: int | None = Field(
+        default=None, description="Unique identifier for the interest"
+    )
+    category: InterestCategory | None = Field(
+        default=None, description="Category of the interest"
+    )
+    summary: str | None = Field(default=None, description="Summary of the interest")
+    registration_date: datetime | None = Field(
+        default=None, description="Registration date of the interest"
+    )
+    published_date: datetime | None = Field(
+        default=None, description="Published date of the interest"
+    )
+    monetary_value_field: MonetaryValueField | None = Field(
+        default=None, description="Monetary value field of the interest"
+    )
+    fields: List[InterestField] = Field(
+        ..., description="List of fields associated with the interest"
+    )
+
+
+class MemberWithInterests(BaseModel):
+    member: Member = Field(..., description="Member details")
+    interests: List[InterestRead] = Field(
+        ..., description="List of interests associated with the member"
+    )
+
+
+@router.get(
+    "/search_interests_by_member_id",
+    response_model=MemberWithInterests,
+    operation_id="search_member_interests",
+    description="Search for the interests of member with <member_id>.",
+)
+def search_member_interests(
+    *,
+    session: Session = Depends(get_session),
+    member_id: Annotated[
+        str | int, Query(description="ID of the member to search for.")
+    ],
+    published_before: Annotated[
+        datetime | None,
+        Query(
+            description="Filter by interests published before this date in ISO format (YYYY-MM-DD)."
+        ),
+    ] = None,
+    published_after: Annotated[
+        datetime | None,
+        Query(
+            description="Filter by interests published after this date in ISO format (YYYY-MM-DD)."
+        ),
+    ] = None,
+) -> MemberWithInterests | None:
+
+    # these are necessary for claude to be able to call the api
+    member_id = int(member_id)
+
+    statement = select(Member)
+
+    statement = filter.by_member_id(statement, member_id)
+    statement = filter.by_interest_published_after(statement, published_after)
+    statement = filter.by_interest_published_before(statement, published_before)
+
+    member: Member | None = session.exec(statement).one_or_none()
+    if not member:
+        return None
+
+    result = MemberWithInterests(member=member, interests=[])
+    for interest in member.interests:
+        interest_read = InterestRead(
+            id=interest.id,
+            category=interest.category,
+            summary=interest.summary,
+            registration_date=interest.registration_date,
+            published_date=interest.published_date,
+            fields=interest.fields,
+            monetary_value_field=interest.monetary_value_field,
+        )
+        result.interests.append(interest_read)
+
+    return result
