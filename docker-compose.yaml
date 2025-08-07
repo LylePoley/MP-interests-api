@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - db_data:/app/data/members.db
+      - db_data:/app/data
     image: members-registered-interests-mcp:1
     ports:
       - "8000:8000"
