@@ -6,7 +6,6 @@ dist/
 wheels/
 *.egg-info
 old_backend/
-test*
 
 # Virtual environments
 .venv
