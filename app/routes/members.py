@@ -34,7 +34,7 @@ def search_members(
         ),
     ] = None,
     house: Annotated[
-        str | int | None,
+        str | None,
         Query(description="House ID members by. 1 for Commons, 2 for Lords"),
     ] = None,
     membership_started_since: Annotated[
@@ -51,13 +51,13 @@ def search_members(
         ),
     ] = None,
     skip: Annotated[
-        str | int,
+        str,
         Query(
             description="Number of records to skip for pagination. E.g. 50 will skip the first 50 records"
         ),
     ] = 0,
     take: Annotated[
-        str | int | None,
+        str | None,
         Query(
             description="Number of records to return. E.g. 20 will return the next 20 records after the skipped ones"
         ),

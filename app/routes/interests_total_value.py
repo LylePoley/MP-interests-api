@@ -5,23 +5,18 @@ from typing import List, Annotated
 from app.models import (
     Interest,
     Member,
-    MonetaryValueField,
-    InterestField,
-    InterestCategory,
+    MonetaryValueField
+)
+from app.models.api_models import (
+    MemberWithTotalInterestValue,
+    MemberWithInterests,
+    InterestRead
 )
 from app.core.db import get_session
 import app.core.filters as filter
 from datetime import datetime
-from pydantic import BaseModel, Field
 
 router = APIRouter(prefix="/interests", tags=["interests"])
-
-
-class MemberWithTotalInterestValue(BaseModel):
-    member: Member = Field(..., description="Member details")
-    total_interests_value: float = Field(
-        ..., description="Total value of interests for the member"
-    )
 
 
 @router.get(
@@ -46,7 +41,7 @@ def search_members_with_grouped_interest_values(
         ),
     ] = None,
     house: Annotated[
-        str | int | None,
+        str | None,
         Query(description="House ID to filter members by. 1 for Commons, 2 for Lords"),
     ] = None,
     published_before: Annotated[
@@ -62,15 +57,15 @@ def search_members_with_grouped_interest_values(
         ),
     ] = None,
     skip: Annotated[
-        str | int,
+        str,
         Query(
             description="Number of records to skip for pagination. E.g. 50 will skip the first 50 records"
         ),
-    ] = 0,
+    ] = "0",
     take: Annotated[
-        str | int | None,
+        str | None,
         Query(
-            description="Number of records to return. E.g. 20 will return the next 20 records after the skipped ones"
+            description="Number of records to return. E.g. 20 will return the next 20 records after the skipped ones, if None, returns all records"
         ),
     ] = None,
 ) -> List[MemberWithTotalInterestValue]:
@@ -115,35 +110,6 @@ def search_members_with_grouped_interest_values(
     ]
 
 
-class InterestRead(BaseModel):
-    id: int | None = Field(
-        default=None, description="Unique identifier for the interest"
-    )
-    category: InterestCategory | None = Field(
-        default=None, description="Category of the interest"
-    )
-    summary: str | None = Field(default=None, description="Summary of the interest")
-    registration_date: datetime | None = Field(
-        default=None, description="Registration date of the interest"
-    )
-    published_date: datetime | None = Field(
-        default=None, description="Published date of the interest"
-    )
-    monetary_value_field: MonetaryValueField | None = Field(
-        default=None, description="Monetary value field of the interest"
-    )
-    fields: List[InterestField] = Field(
-        ..., description="List of fields associated with the interest"
-    )
-
-
-class MemberWithInterests(BaseModel):
-    member: Member = Field(..., description="Member details")
-    interests: List[InterestRead] = Field(
-        ..., description="List of interests associated with the member"
-    )
-
-
 @router.get(
     "/search_interests_by_member_id",
     response_model=MemberWithInterests,
@@ -183,8 +149,11 @@ def search_member_interests(
     if not member:
         return None
 
-    result = MemberWithInterests(member=member, interests=[])
+    result = MemberWithInterests(member=member, interests=[], total_interests_value=0.0)
     for interest in member.interests:
+        result.total_interests_value += interest.monetary_value_field.value \
+                                        if interest.monetary_value_field and \
+                                            interest.monetary_value_field.value else 0.0
         interest_read = InterestRead(
             id=interest.id,
             category=interest.category,

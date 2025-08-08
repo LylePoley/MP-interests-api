@@ -8,6 +8,7 @@ from app.core.db import setup_db
 
 from app.routes.members import router as members_router
 from app.routes.interests_total_value import router as interests_total_value_router
+from app.routes.party import router as party_router
 
 import logging
 
@@ -32,6 +33,7 @@ app = FastAPI(lifespan=lifespan)
 
 app.include_router(members_router)
 app.include_router(interests_total_value_router)
+app.include_router(party_router)
 
 
 @app.get("/")
@@ -47,6 +49,7 @@ mcp = FastApiMCP(
         "search_members_with_grouped_interest_values",
         "search_members",
         "search_member_interests",
+        "search_party"
     ],
 )
 mcp.mount_http()
