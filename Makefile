@@ -8,5 +8,5 @@ run-with-docker:
 
 .PHONY: run-with-uv
 run-with-uv:
+	uv sync && \
 	uv run uvicorn app.api_server:app --host localhost --port 8000
-

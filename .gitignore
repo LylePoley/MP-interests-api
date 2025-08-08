@@ -5,9 +5,10 @@ build/
 dist/
 wheels/
 *.egg-info
-old_backend/
 
 # Virtual environments
 .venv
 .pytest_cache/
 .DS_store
+
+parliament_api_schemas/
